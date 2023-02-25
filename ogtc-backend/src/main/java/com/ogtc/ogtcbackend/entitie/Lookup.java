@@ -1,10 +1,15 @@
 package com.ogtc.ogtcbackend.entitie;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "LOOKUPS")
 public class Lookup {
@@ -13,21 +18,5 @@ public class Lookup {
 
     @Column(name = "DESCRIPTION", nullable = false, length = 1000)
     private String description;
-
-    public LookupId getId() {
-        return id;
-    }
-
-    public void setId(LookupId id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
 }

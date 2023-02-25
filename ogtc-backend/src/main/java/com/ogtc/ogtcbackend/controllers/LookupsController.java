@@ -16,7 +16,7 @@ public class LookupsController extends BaseController {
     @Autowired
     private LookupService lookupService;
 
-    @GetMapping("/symbols")
+    @GetMapping("/lkp/symbols")
     public List<LookupDto> getAllSymbole() {
         return lookupService.getAllSymbols();
     }

@@ -4,6 +4,8 @@ import { ApplicationStateServiceService } from '../../../services/applicationsta
 import { LookupService } from 'src/app/services/external/lookup.service';
 import { Symbol } from '../../../model/entities/symbol';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TradeService } from 'src/app/services/external/trade.service';
+import { Trade } from 'src/app/model/entities/trade';
 
 @Component({
   selector: 'app-new-trade',
@@ -14,13 +16,14 @@ export class NewTradeComponent implements OnInit {
   tradeType: string = '';
   tradeForm: FormGroup;
   selectedSymbol: Symbol;
+  trade:Trade;
 
   symbols: Symbol[] = [];
 
   
 
   
-  constructor(private fb: FormBuilder, private dataService: ApplicationStateServiceService,private lookupService:LookupService) { }
+  constructor(private fb: FormBuilder, private dataService: ApplicationStateServiceService,private lookupService:LookupService,private tradeService:TradeService) { }
 
   ngOnInit() {
     this.lookupService.getLookups().subscribe((data) => {
@@ -41,8 +44,17 @@ export class NewTradeComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const trade = this.tradeForm.value;
-      console.log(trade);
+    const tradeForm = this.tradeForm.value;
+      console.log(tradeForm);
+    this.trade = new Trade();
+    this.trade.tradeType = this.tradeType;
+    this.trade.symbol = tradeForm['symbol'];
+    this.trade.entryDate = new Date();
+    this.tradeService.saveTrade(this.trade).subscribe(
+      (data)=>{
+        console.log(data);
+      }
+    );
   }
 
 }
