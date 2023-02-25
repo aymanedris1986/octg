@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ApplicationStateServiceService } from '../../../services/applicationstate/application-state-service.service';
 import { LookupService } from 'src/app/services/external/lookup.service';
 import { Symbol } from '../../../model/entities/symbol';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TradeService } from 'src/app/services/external/trade.service';
 import { Trade } from 'src/app/model/entities/trade';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-trade',
@@ -23,7 +22,7 @@ export class NewTradeComponent implements OnInit {
   
 
   
-  constructor(private fb: FormBuilder, private dataService: ApplicationStateServiceService,private lookupService:LookupService,private tradeService:TradeService) { }
+  constructor(private fb: FormBuilder,private lookupService:LookupService,private tradeService:TradeService,private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.lookupService.getLookups().subscribe((data) => {
@@ -35,7 +34,7 @@ export class NewTradeComponent implements OnInit {
     });
 
 
-    this.tradeType = this.dataService.currentTradeType;
+    this.tradeType = this.route.snapshot.paramMap.get('tradeType') || '';
     this.tradeForm = this.fb.group({
       tradeType: [this.tradeType],
       symbol: [null, [Validators.required]]

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApplicationStateServiceService } from 'src/app/services/applicationstate/application-state-service.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -8,7 +7,7 @@ import { ApplicationStateServiceService } from 'src/app/services/applicationstat
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router: Router,private dataService : ApplicationStateServiceService) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -16,8 +15,7 @@ export class DashboardComponent implements OnInit {
   
 
   createNewTrade(tradeType:string) {
-    this.dataService.changeTradeType(tradeType);
-    this.router.navigate(['/new-trade']);
+    this.router.navigate(['/new-trade', { tradeType: tradeType }]);
   }
 
 }
