@@ -13,7 +13,7 @@ public class LookupId implements Serializable {
     @Column(name = "CODE", nullable = false, length = 300)
     private String code;
 
-    @Column(name = "\"TYPE\"", nullable = false, length = 300)
+    @Column(name = "LKP_TYPE", nullable = false, length = 300)
     private String type;
 
     public String getCode() {
