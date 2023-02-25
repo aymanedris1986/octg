@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -28,7 +30,8 @@ import {InputTextModule} from 'primeng/inputtext';
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    InputTextModule
+    InputTextModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
