@@ -10,6 +10,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import {InputTextModule} from 'primeng/inputtext';
+
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DropdownModule,
     FormsModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

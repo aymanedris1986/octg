@@ -25,9 +25,10 @@ export class NewTradeComponent implements OnInit {
   ngOnInit() {
     this.tradeType = this.dataService.currentTradeType;
     this.tradeForm = this.fb.group({
-      tradeType: [this.tradeType, Validators.required],
-      symbol: [null, [Validators.required, Validators.min(0)]]
+      tradeType: [this.tradeType],
+      symbol: [null, [Validators.required]]
     });
+    this.tradeForm.get('tradeType')?.disable();
   }
 
   onSubmit(): void {

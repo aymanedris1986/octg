@@ -1,35 +1,25 @@
-
-
-
-<form [formGroup]="tradeForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="symbol">Symbol</label>
-      <p-dropdown id="symbol" [options]="symbols"  optionLabel="label"  formControlName="symbol" optionValue="code">
-      </p-dropdown>
-      
-      <div *ngIf="!tradeForm.get('symbol')?.valid  && (tradeForm.get('symbol')?.dirty  || tradeForm.get('symbol')?.touched)"
+<form [formGroup]="tradeForm" (ngSubmit)="onSubmit()" class="form">
+  <div class="form-group row">
+    <label for="symbol" class="col-sm-2 col-form-label">Symbol</label>
+    <div class="col-sm-10">
+      <p-dropdown id="symbol" [options]="symbols" optionLabel="label" formControlName="symbol" optionValue="code"></p-dropdown>
+      <div *ngIf="!tradeForm.get('symbol')?.valid && (tradeForm.get('symbol')?.dirty || tradeForm.get('symbol')?.touched)"
            class="text-danger">
         <div *ngIf="tradeForm.get('symbol')?.errors">
           Symbol is required.
         </div>
       </div>
-    </div> 
-{{tradeForm.get('symbol')?.valid}}
-    
-    <!-- <div class="form-group">
-      <label for="entryPrice">Entry Price</label>
-      <input type="number" id="entryPrice" formControlName="entryPrice" pInputNumber [min]="0" required>
-      <div *ngIf="tradeForm.get('entryPrice').invalid && (tradeForm.get('entryPrice').dirty || tradeForm.get('entryPrice').touched)"
-           class="text-danger">
-        <div *ngIf="tradeForm.get('entryPrice').errors.required">
-          Entry Price is required.
-        </div>
-        <div *ngIf="tradeForm.get('entryPrice').errors.min">
-          Entry Price cannot be negative.
-        </div>
-      </div>
-    </div> -->
-  
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="tradeType" class="col-sm-2 col-form-label">Entry Price</label>
+    <div class="col-sm-10">
+      <input pInputText id="tradeType" type="text" formControlName="tradeType" class="form-control">
+    </div>
+  </div>
+
+  <div class="form-group text-center">
     <button pButton type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  
+  </div>
+</form>
