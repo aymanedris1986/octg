@@ -26,5 +26,22 @@ public class Trade {
     @Column(name = "SYMBOL", nullable = false, length = 300)
     private String symbol;
 
+    @Column(name = "ENTRY_PRICE")
+    private Long entryPrice;
+
+    @Column(name = "NUMBER_OF_UNITS")
+    private Long numberOfUnits;
+
+    @Column(name = "EXIT_PRICE")
+    private Long exitPrice;
+
+    @Column(name = "EXIT_DATE")
+    private LocalDate exitDate;
+
+    @Column(name = "IS_CLOSED")
+    private Boolean isClosed;
+
+    @Column(name = "SUCCESS_STATUS")
+    private Boolean successStatus;
 
 }

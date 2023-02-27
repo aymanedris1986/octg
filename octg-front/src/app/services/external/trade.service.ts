@@ -13,8 +13,11 @@ export class TradeService {
   constructor(private http: HttpClient) { }
 
   saveTrade(trade:Trade):Observable<Trade>{
-    console.log(trade);
     return this.http.post<Trade>(this.baseUrl,trade);
+  }
+
+  getTradeById(id:any):Observable<Trade>{
+    return this.http.get<Trade>(this.baseUrl+"/"+id);
   }
 
 }

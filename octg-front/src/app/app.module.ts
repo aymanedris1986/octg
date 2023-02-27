@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import { HttpClientModule } from '@angular/common/http';
+import { EditTradeComponent } from './components/trades/edit-trade/edit-trade/edit-trade.component';
 
 
 
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     DashboardComponent,
-    NewTradeComponent
+    NewTradeComponent,
+    EditTradeComponent
   ],
   imports: [
     BrowserModule,

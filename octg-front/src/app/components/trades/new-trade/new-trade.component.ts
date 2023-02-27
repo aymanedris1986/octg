@@ -15,20 +15,20 @@ export class NewTradeComponent implements OnInit {
   tradeType: string = '';
   tradeForm: FormGroup;
   selectedSymbol: Symbol;
-  trade:Trade;
+  trade: Trade;
 
   symbols: Symbol[] = [];
 
-  
 
-  
-  constructor(private fb: FormBuilder,private lookupService:LookupService,private tradeService:TradeService,private route: ActivatedRoute) { }
+
+
+  constructor(private fb: FormBuilder, private lookupService: LookupService, private tradeService: TradeService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.lookupService.getLookups().subscribe((data) => {
       data.forEach((item) => {
         this.symbols.push(
-          {code : item.idCode , label : item.description}
+          { code: item.idCode, label: item.description }
         );
       });
     });
@@ -44,14 +44,14 @@ export class NewTradeComponent implements OnInit {
 
   onSubmit(): void {
     const tradeForm = this.tradeForm.value;
-      console.log(tradeForm);
+    
     this.trade = new Trade();
     this.trade.tradeType = this.tradeType;
     this.trade.symbol = tradeForm['symbol'];
     this.trade.entryDate = new Date();
     this.tradeService.saveTrade(this.trade).subscribe(
-      (data)=>{
-        console.log(data);
+      (data) => {
+        this.trade = data;
       }
     );
   }

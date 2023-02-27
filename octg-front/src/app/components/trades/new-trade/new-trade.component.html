@@ -1,5 +1,11 @@
 <form [formGroup]="tradeForm" (ngSubmit)="onSubmit()" class="form">
   <div class="form-group row">
+    <label for="tradeType" class="col-sm-2 col-form-label">Type</label>
+    <div class="col-sm-10">
+      <input pInputText id="tradeType" type="text" formControlName="tradeType" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
     <label for="symbol" class="col-sm-2 col-form-label">Symbol</label>
     <div class="col-sm-10">
       <p-dropdown id="symbol" [options]="symbols" optionLabel="label" formControlName="symbol" optionValue="code"></p-dropdown>
@@ -11,15 +17,10 @@
       </div>
     </div>
   </div>
-
-  <div class="form-group row">
-    <label for="tradeType" class="col-sm-2 col-form-label">Entry Price</label>
-    <div class="col-sm-10">
-      <input pInputText id="tradeType" type="text" formControlName="tradeType" class="form-control">
-    </div>
-  </div>
-
   <div class="form-group text-center">
     <button pButton type="submit" class="btn btn-primary">Submit</button>
+    <button pButton type="button" label="Back" routerLink="/"></button>
   </div>
 </form>
+
+<app-edit-trade [tradeId]="trade ? trade.id : null"></app-edit-trade>

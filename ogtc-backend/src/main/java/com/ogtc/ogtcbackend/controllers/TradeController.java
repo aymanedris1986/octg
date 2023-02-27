@@ -4,9 +4,7 @@ import com.ogtc.ogtcbackend.base.BaseController;
 import com.ogtc.ogtcbackend.entitie.Trade;
 import com.ogtc.ogtcbackend.services.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TradeController extends BaseController {
@@ -14,8 +12,12 @@ public class TradeController extends BaseController {
     private TradeService tradeService;
 
     @PostMapping("/trade")
-    public void addTrade(@RequestBody Trade trade){
-        System.out.println(trade);
-        tradeService.saveTrade(trade);
+    public Trade addTrade(@RequestBody Trade trade){
+        return tradeService.saveTrade(trade);
+    }
+
+    @GetMapping("/trade/{id}")
+    public Trade getTradeById(@PathVariable Long id){
+        return tradeService.getById(id);
     }
 }

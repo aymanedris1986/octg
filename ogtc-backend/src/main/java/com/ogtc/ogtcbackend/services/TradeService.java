@@ -17,4 +17,6 @@ public class TradeService {
     public Trade saveTrade(Trade t){
         return tradeRepository.save(t);
     }
+
+    public Trade getById(Long id){return tradeRepository.findById(id).get();}
 }
