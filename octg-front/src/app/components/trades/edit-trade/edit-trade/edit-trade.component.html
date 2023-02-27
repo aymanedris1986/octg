@@ -1,1 +1,50 @@
-<p>edit-trade works!</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row g-3">
+            <div class="col-md-12">
+                <label for="id" class="form-label"> id </label>
+                <input id="id" type="number" class="form-control" formControlName="id" />
+            </div>
+            <div class="col-md-12">
+                <label for="tradeType" class="form-label"> tradeType </label>
+                <input id="tradeType" type="text" class="form-control" formControlName="tradeType" />
+            </div>
+            <div class="col-md-12">
+                <label for="symbol" class="form-label"> symbol </label>
+                <input id="symbol" type="text" class="form-control" formControlName="symbol" />
+            </div>
+            <div class="col-md-12">
+                <label for="entryDate" class="form-label"> entryDate </label>
+                <input id="entryDate" type="Date" class="form-control" formControlName="entryDate" />
+            </div>
+            <div class="col-md-12">
+                <label for="entryPrice" class="form-label"> entryPrice </label>
+                <input id="entryPrice" type="number" class="form-control" formControlName="entryPrice" />
+            </div>
+            <div class="col-md-12">
+                <label for="numberOfUnits" class="form-label"> numberOfUnits </label>
+                <input id="numberOfUnits" type="number" class="form-control" formControlName="numberOfUnits" />
+            </div>
+            <div class="col-md-12">
+                <label for="exitPrice" class="form-label"> exitPrice </label>
+                <input id="exitPrice" type="number" class="form-control" formControlName="exitPrice" />
+            </div>
+            <div class="col-md-12">
+                <label for="exitDate" class="form-label"> exitDate </label>
+                <input id="exitDate" type="Date" class="form-control" formControlName="exitDate" />
+            </div>
+            <div class="col-md-12">
+                <label for="isClosed" class="form-label"> isClosed </label>
+                <input id="isClosed" type="text" class="form-control" formControlName="isClosed" />
+            </div>
+            <div class="col-md-12">
+                <label for="successStatus" class="form-label"> successStatus </label>
+                <input id="successStatus" type="text" class="form-control" formControlName="successStatus" />
+            </div>
+
+            <!--Submission Button-->
+            <div class="d-flex justify-content-end mt-2">
+                <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid"> Submit </button>
+            </div>
+        </div>
+    </form>
