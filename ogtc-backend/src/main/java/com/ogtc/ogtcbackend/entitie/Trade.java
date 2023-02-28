@@ -39,9 +39,9 @@ public class Trade {
     private LocalDate exitDate;
 
     @Column(name = "IS_CLOSED")
-    private Boolean isClosed;
+    private String isClosed;
 
     @Column(name = "SUCCESS_STATUS")
-    private Boolean successStatus;
+    private String successStatus;
 
 }

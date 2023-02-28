@@ -22,14 +22,16 @@ export class EditTradeComponent implements OnInit, OnChanges {
       tradeType: [null, Validators.required],
       symbol: [null, Validators.required],
       entryDate: [null, Validators.required],
-      entryPrice: [null, Validators.required],
-      numberOfUnits: [null, Validators.required],
-      exitPrice: [null, Validators.required],
-      exitDate: [null, Validators.required],
-      isClosed: [null, Validators.required],
-      successStatus: [null, Validators.required],
+      entryPrice: [null],
+      numberOfUnits: [null],
+      exitPrice: [null],
+      exitDate: [null],
+      isClosed: [null],
+      successStatus: [null],
    });
-
+   this.form.get('id')?.disable();
+   this.form.get('tradeType')?.disable();
+   this.form.get('symbol')?.disable();
   }
 
   ngOnInit(): void {
@@ -55,8 +57,13 @@ export class EditTradeComponent implements OnInit, OnChanges {
 
 
   onSubmit() {
-    this.currentTrade = this.form.value;
+    this.currentTrade = this.form.getRawValue();
     console.log(this.currentTrade);
+    this.tradeService.saveTrade(this.currentTrade).subscribe(
+      (data)=>{
+         this.currentTrade = data;
+      }
+    )
   }
 
 //// Fields Error Message ////////////////////////////////////////////////////////

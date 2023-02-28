@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import { HttpClientModule } from '@angular/common/http';
 import { EditTradeComponent } from './components/trades/edit-trade/edit-trade/edit-trade.component';
+import {CalendarModule} from 'primeng/calendar'
 
 
 
@@ -33,7 +34,8 @@ import { EditTradeComponent } from './components/trades/edit-trade/edit-trade/ed
     BrowserAnimationsModule,
     ReactiveFormsModule,
     InputTextModule,
-    HttpClientModule
+    HttpClientModule,
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

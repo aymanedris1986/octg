@@ -1,4 +1,4 @@
-
+<!-- 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="row g-3">
             <div class="col-md-12">
@@ -42,9 +42,64 @@
                 <input id="successStatus" type="text" class="form-control" formControlName="successStatus" />
             </div>
 
-            <!--Submission Button-->
             <div class="d-flex justify-content-end mt-2">
                 <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid"> Submit </button>
             </div>
         </div>
-    </form>
+    </form> -->
+
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group" *ngIf="false">
+          <label for="id">ID</label>
+          <input type="number" formControlName="id" class="form-control" id="id">
+        </div>
+      
+        <div class="form-group">
+          <label for="tradeType">Trade Type</label>
+          <input type="text" formControlName="tradeType" class="form-control" id="tradeType">
+        </div>
+      
+        <div class="form-group">
+          <label for="symbol">Symbol</label>
+          <input type="text" formControlName="symbol" class="form-control" id="symbol">
+        </div>
+      
+        <div class="form-group">
+          <label for="entryDate">Entry Date</label>
+          <p-calendar formControlName="entryDate" class="form-control" id="entryDate" ></p-calendar>
+        </div>
+      
+        <div class="form-group">
+          <label for="entryPrice">Entry Price</label>
+          <input type="number" formControlName="entryPrice" class="form-control" id="entryPrice">
+        </div>
+      
+        <div class="form-group">
+          <label for="numberOfUnits">Number of Units</label>
+          <input type="number" formControlName="numberOfUnits" class="form-control" id="numberOfUnits">
+        </div>
+      
+        <div class="form-group">
+          <label for="exitPrice">Exit Price</label>
+          <input type="number" formControlName="exitPrice" class="form-control" id="exitPrice">
+        </div>
+      
+        <div class="form-group">
+          <label for="exitDate">Exit Date</label>
+          <p-calendar formControlName="exitDate" class="form-control" id="exitDate" ></p-calendar>
+        </div>
+      
+        <div class="form-group">
+          <label for="isClosed">Is Closed?</label>
+          <input type="text" formControlName="isClosed" class="form-control" id="isClosed">
+        </div>
+      
+        <div class="form-group">
+          <label for="successStatus">Success Status</label>
+          <input type="text" formControlName="successStatus" class="form-control" id="successStatus">
+        </div>
+      
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+      </form>
+      
