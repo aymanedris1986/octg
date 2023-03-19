@@ -1,13 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -15px;
-  }
-  
-  .col {
-    flex: 1;
-    padding: 0 15px;
-  }
-  
+
+.card-text-bold {
+  font-size: 48px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-titlet-bold {
+  font-size: 36px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: stretch;
+}
+
+.container .btn {
+  height: 100%;
+}

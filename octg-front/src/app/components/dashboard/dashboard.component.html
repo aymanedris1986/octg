@@ -1,3 +1,59 @@
-<h1>Welcome to the Dashboard</h1>
-<button pButton type="button" label="Create New Long Trade Entry" (click)="createNewTrade('LONG')"></button>
-<button pButton type="button" label="Create New Short Trade Entry" (click)="createNewTrade('SHORT')"></button>
+<div class="container-fluid mt-3">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title card-titlet-bold">TOTAL NUMBER OF TRADES</h5>
+            <p class="card-text card-text-bold">{{tradesCounts.allTrades}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title card-titlet-bold" style="font-size: 36px; text-align: center;">TOTAL NUMBER OF CLOSED TRADES</h5>
+            <p class="card-text card-text-bold">{{tradesCounts.closedTrades}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title card-titlet-bold" style="font-size: 36px; text-align: center;">TOTAL NUMBER OF OPEN TRADES</h5>
+            <p class="card-text card-text-bold">{{tradesCounts.openedTrades}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mt-3 container">
+        <div class="row container">
+          <div class="col-md-6 container" >
+            <button type="button" class="btn btn-success btn-block btn-block full-height">Open Long Position</button>
+          </div>
+          <div class="col-md-6 container">
+            <button type="button" class="btn btn-danger btn-block btn-block full-height">Open Short Position</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="col-md-12 mt-3">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Direction</th>
+              <th>Entry Date</th>
+              <th>Exit Date</th>
+  </tr>
+</thead>
+<tbody>
+  <tr >
+    <td>symbol</td>
+    <td>direction</td>
+    <td>entryDate</td>
+    <td>exitDate</td>
+    <td>profitLoss</td>
+  </tr>
+</tbody>
+</table>
+</div>
